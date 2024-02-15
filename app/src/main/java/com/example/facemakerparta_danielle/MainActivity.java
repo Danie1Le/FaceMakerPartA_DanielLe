@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
 
+        // initializes SeekBars and TextViews
         SeekBar seekBarRed;
         SeekBar seekBarBlue;
         SeekBar seekBarGreen;
         TextView tvOne;
         TextView tvTwo;
         TextView tvThree;
-
-        super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
 
             //seekbar for Red
             seekBarRed = findViewById(R.id.RedVal);
@@ -45,13 +45,14 @@ public class MainActivity extends AppCompatActivity {
             tvThree = findViewById(R.id.BlueNum);
 
 
+            // setup The seekBar progress for red
             seekBarRed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                public void onProgressChanged(SeekBar seekBar, int Progress, boolean b) {
                     tvOne.setVisibility(View.VISIBLE);
 
                     //sets the text based on progress value
-                    tvOne.setText("Red: " + i + "");
+                    tvOne.setText("Red: " + Progress + "");
                 }
 
                 @Override
@@ -65,11 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+        // setup The seekBar progress for green
         seekBarBlue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                public void onProgressChanged(SeekBar seekBar, int Progress, boolean b) {
                     tvTwo.setVisibility(View.VISIBLE);
-                    tvTwo.setText("Green: " + i + "");
+                    tvTwo.setText("Green: " + Progress + "");
                 }
 
                 @Override
@@ -83,11 +85,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+        // setup The seekBar progress for blue
         seekBarGreen.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                public void onProgressChanged(SeekBar seekBar, int Progress, boolean b) {
                     tvThree.setVisibility(View.VISIBLE);
-                    tvThree.setText("Blue: " + i + "");
+                    tvThree.setText("Blue: " + Progress + "");
                 }
 
                 @Override
@@ -101,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-
+        // Set up the Spinner for all the Hairstyles
         Spinner spinner = findViewById(R.id.HairStyles);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -117,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        // Make an Arraylist to hold all of the hairstyle options for the spinner
         ArrayList<String> HairTypes = new ArrayList<>();
         HairTypes.add("Buzz");
         HairTypes.add("Taper");
