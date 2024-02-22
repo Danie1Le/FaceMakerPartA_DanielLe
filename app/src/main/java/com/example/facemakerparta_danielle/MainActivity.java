@@ -157,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
         HairOption.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
+                String item = adapterView.getItemAtPosition(i).toString(); // get item from adapter view
                 Toast.makeText(MainActivity.this, "Selected Item: " + item, Toast.LENGTH_SHORT).show();
-                faceView.setHairStyle(i);
-                faceView.invalidate();
+                faceView.setHairStyle(i);   // Set the selected hairstyle on the faceView
+                faceView.invalidate(); // redraw itself
             }
 
             @Override
